@@ -40,3 +40,12 @@ class RegisterUserSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+class BlacklistTokenSerializer(serializers.Serializer):
+    refresh_token = serializers.CharField(max_length=255)
+
+    def validate(self, attrs):
+        if len(attrs['refresh_token']) < 10:
+            raise serializers.ValidationError({"refresh_token": 'Token too short'})
+
+        return attrs

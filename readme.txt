@@ -8,6 +8,7 @@ basic_api is a standalone django-app that can be used directly, but it requires 
 			 	 ...
 		    'rest_framework',
 		    'corsheaders',
+			'rest_framework_simplejwt.token_blacklist',
 		    'basic_api'
 		]
 
@@ -34,7 +35,7 @@ basic_api is a standalone django-app that can be used directly, but it requires 
 		    "http://localhost:3000"
 		]
 
-		AUTHENTICATION_BACKENDS = ('core.emailbackend.EmailBackend',)
+		# AUTHENTICATION_BACKENDS = ('core.emailbackend.EmailBackend',)
 
 		SIMPLE_JWT = {
 		    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
